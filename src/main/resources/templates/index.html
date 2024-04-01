@@ -1,21 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
 <script>
-
 </script>
 
+<style>
+    table, tr, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        text-align: center;
+    }
+</style>
 <body>
-
-<div>ddd</div>
-<div id="calendar"></div>
-
+<div>
+    <table>
+        <tr>
+            <th>순위</th>
+            <th>팀</th>
+            <th>경기수</th>
+            <th>승</th>
+            <th>패</th>
+            <th>무</th>
+            <th>승률</th>
+            <th>최근경기기록</th>
+        </tr>
+        <tr th:each="match : ${matchList}">
+            <td th:text="${match.rank}"></td>
+            <td th:text="${match.team}"></td>
+            <td th:text="${match.game}"></td>
+            <td th:text="${match.win}"></td>
+            <td th:text="${match.defeat}"></td>
+            <td th:text="${match.draw}"></td>
+            <td th:text="${match.rate}"></td>
+            <td th:text="${match.recent}"></td>
+        </tr>
+    </table>
+</div>
+<div>
+    <button th:onclick="|location.href='@{/monthly}'|">롯데경기일정</button>
+<!--    <a th:href="@{/monthly}"><button>롯데경기일정</button></a>-->
+</div>
 </body>
 </html>
-
 
