@@ -15,6 +15,7 @@
     }
     th, td {
         text-align: center;
+        width: 100px;
     }
 </style>
 <body>
@@ -32,6 +33,7 @@
             <th>패</th>
             <th>무</th>
             <th>승률</th>
+            <th>연승</th>
             <th>최근경기기록</th>
         </tr>
         <tr th:each="match : ${matchList}">
@@ -42,6 +44,7 @@
             <td th:text="${match.defeat}"></td>
             <td th:text="${match.draw}"></td>
             <td th:text="${match.rate}"></td>
+            <td th:text="${match.winning}"></td>
             <td th:text="${match.recent}"></td>
         </tr>
     </table>
